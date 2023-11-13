@@ -1,9 +1,11 @@
 <?php
 require_once('conexao.php');
 
-class Login extends Conexao {
-    public function autenticar($usuario, $senha) {
-        $senha = md5($senha); // Use hash para maior segurança (não esqueça de saltar a senha)
+class Login extends Conexao
+{
+    public function autenticar($usuario, $senha)
+    {
+        //$senha = md5($senha); // Use hash para maior segurança (não esqueça de saltar a senha)
 
         $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
         $result = $this->conn->query($sql);
@@ -18,7 +20,8 @@ class Login extends Conexao {
         }
     }
 
-    private function registrarLog($usuario_id) {
+    private function registrarLog($usuario_id)
+    {
         $data_login = date("Y-m-d H:i:s");
         $ip = $_SERVER['REMOTE_ADDR'];
         $dispositivo = $_SERVER['HTTP_USER_AGENT'];

@@ -5,17 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch built-in server and debug",
+            "name": "Launch Built-in web server",
             "type": "php",
             "request": "launch",
             "runtimeArgs": [
+                "-dxdebug.mode=debug",
+                "-dxdebug.start_with_request=yes",
                 "-S",
-                "localhost:9000",
-                "-t",
-                "."
+                "localhost:9003"
             ],
+            "program": "",
+            "cwd": "${workspaceRoot}",
             "port": 9000,
             "serverReadyAction": {
+                "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
+                "uriFormat": "http://localhost:%s",
                 "action": "openExternally"
             }
         },

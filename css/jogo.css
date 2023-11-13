@@ -1,0 +1,42 @@
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.progress {
+    height: 20px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    transition: width 1s;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: red;
+}
+
+h2 {
+    margin: 10% 0 5% 0;
+    font-weight: bold;
+}
+
+button.btn.btn-light.mb-3.w-100 {
+    font-size: 20px;
+    padding: 3%;
+    border: solid;
+}
