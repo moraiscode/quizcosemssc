@@ -1,4 +1,13 @@
 <?php
+// Inicie ou retome a sessão
+session_start();
+
+// Se o número de WhatsApp estiver disponível na sessão
+if (isset($_SESSION['whatsapp'])) {
+    $whatsappDoJogador = $_SESSION['whatsapp'];
+    // Faça o que precisar com $whatsappDoJogador, como atualizar o campo "vitorioso" no banco de dados.
+}
+
 // Includes Essenciais
 // include "class/verificasessao.php";
 include "include/header.php";
@@ -52,11 +61,13 @@ button.btn.btn-light.mb-3.w-100 {
 .correct {
     background-color: green !important;
     color: white !important;
+    border: solid;
 }
 
 .incorrect {
     background-color: red !important;
     color: white !important;
+    border: solid;
 }
 </style>
 
@@ -76,6 +87,13 @@ button.btn.btn-light.mb-3.w-100 {
 
                                 <div class="w-100 p-3">
                                     <div class="row text-center">
+                                        <h1>
+                                            <?php
+                                            // Resgatar o WhatsApp da URL
+                                            echo $whatsappDoJogador = isset($_SESSION['whatsapp']) ? $_SESSION['whatsapp'] : null;
+                                            ;
+                                            ?>
+                                        </h1>
                                         <div class="col-md-12 align-middle">
                                             <h1 class="align-middle">
                                                 <i class="ti ti-gauge"></i>
@@ -101,6 +119,12 @@ button.btn.btn-light.mb-3.w-100 {
     </div>
 
     <script>
+    // if (isset($_SESSION['whatsapp'])) {
+    //     alert("WhatsApp do jogador: ".$_SESSION['whatsapp'].
+    //         "");
+
+    // }
+
     function updateTimer() {
         let timerElement = document.getElementById('timer');
         let timerBarElement = document.getElementById('timerBar');

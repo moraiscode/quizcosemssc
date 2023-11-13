@@ -46,7 +46,13 @@ class Usuario
             } else {
                 // Se existir e não venceu o quiz
                 $conexao->fecharConexao();
-                echo 'quiz.php';
+                // echo 'quiz.php';
+
+                // Salve o WhatsApp na sessão
+                $_SESSION['whatsapp'] = $whatsapp;
+
+                header("Location: ../quiz.php?whatsapp=" . urlencode($whatsapp));
+
                 exit();
             }
         } else {

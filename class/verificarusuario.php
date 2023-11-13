@@ -6,7 +6,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $whatsapp = $_POST['whatsappmodal'];
     $resultado = $usuario->verificarAcesso($whatsapp);
 
-    // Enviar resposta adequada ao Ajax
-    echo $resultado;
+    // Construir a URL com o parâmetro
+    $url = "quiz.php?whatsapp=" . urlencode($whatsapp);
+
+    // Redirecionar para a URL
+    header("Location: $url");
+    exit();
 }
 ?>

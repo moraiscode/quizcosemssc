@@ -1,4 +1,8 @@
 <?php
+
+// Inicie ou retome a sessão
+session_start();
+
 class Conexao
 {
     private $servername = "localhost";
