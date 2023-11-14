@@ -4,11 +4,10 @@ include "include/header.php";
 ?>
 
 <body>
-    <!--  Body Wrapper -->
+
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="ful
 l   " data-sidebar-position="fixed" data-header-position="fixed">
 
-        <!--  Main wrapper -->
         <div class="body-wrapper">
 
             <?php include "include/navbar.php"; ?>
@@ -117,7 +116,6 @@ l   " data-sidebar-position="fixed" data-header-position="fixed">
                 <?php include "include/devby.php"; ?>
 
             </div>
-            <!-- Fim conteiner fluid -->
 
         </div>
     </div>

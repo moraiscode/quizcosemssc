@@ -1,7 +1,7 @@
 <?php
 
-include "include/header.php";
 session_start();
+include "include/header.php";
 require_once('class/login.php');
 
 if (isset($_SESSION['usuario'])) {
@@ -20,7 +20,7 @@ if (isset($_SESSION['usuario'])) {
             exit();
         } else {
             $erroconnmsg = "Erro: dados inválidos!";
-            // Não redirecione, exiba o alerta aqui
+
             echo "<script>mostrarErroConexao('$erroconnmsg');</script>";
         }
     }
@@ -42,7 +42,7 @@ if (isset($_SESSION['usuario'])) {
                                         <img src="img/logocongresso200px.png" width="200" alt="">
                                     </a>
                                     <?php
-                                    // Exibir alerta de erro de conexão se houver
+
                                     if (isset($erroconnmsg) && !empty($erroconnmsg)) {
                                         echo '<div class="alert alert-danger mt-3" role="alert">' . $erroconnmsg . '</div>';
                                     }
@@ -65,15 +65,19 @@ if (isset($_SESSION['usuario'])) {
                                 </div>
                             </div>
                         </div>
+
+                        <?php include "include/devby.php"; ?>
                     </div>
                 </div>
+
             </div>
+
         </div>
 
         <?php include "include/footer.php"; ?>
 
         <script>
-            // Função para mostrar alerta SweetAlert
+
             function mostrarErroConexao(erro) {
                 Swal.fire({
                     icon: 'error',
@@ -84,7 +88,7 @@ if (isset($_SESSION['usuario'])) {
         </script>
 
         <?php
-        // Verificar se houve erro de conexão e exibir o alerta
+
         if (isset($login) && $login instanceof Login && $login->conn->connect_error) {
             $login->mostrarErroConexao($login->conn->connect_error);
         }
@@ -95,7 +99,7 @@ if (isset($_SESSION['usuario'])) {
     </html>
 
     <?php
-    // Fechar a conexão com o banco de dados
+
     if (isset($login) && $login instanceof Login) {
         $login->fecharConexao();
     }

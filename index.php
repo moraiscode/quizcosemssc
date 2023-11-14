@@ -2,7 +2,6 @@
 
 <body>
 
-    <!-- Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
         <div
@@ -16,11 +15,9 @@
                                     <img src="img/logocongresso200px.png" width="200" alt="">
                                 </a>
 
-                                <form method="post" action="class/cadastro.php">
-                                    <!-- <div class="mb-3">
-                                        <h5>Cadastro de participante</h5>
-                                        <hr>
-                                    </div> -->
+                                <form method="post" action="class/cadastro.php"
+                                    onsubmit="return verificarAcessoAntesDeEnviar()">
+
                                     <div class="mb-3">
                                         <label for="nome" class="form-label">Nome</label>
                                         <input type="text" class="form-control" id="nome" name="nome"
@@ -32,9 +29,9 @@
                                         <input type="tel" class="form-control" id="whatsapp" name="whatsapp"
                                             aria-describedby="whatsappHelp" placeholder="Exemplo: (47) 98273-4573"
                                             required>
-                                        <!-- <small id="whatsappHelp" class="form-text text-muted">Formato esperado: (XX)
-                                            XXXXX-XXXX</small> -->
                                     </div>
+
+                                    <div id="whatsappAlert" class="alert d-none" role="alert"></div>
 
                                     <script src="js/mascarawhatsapp.js"></script>
 
@@ -111,7 +108,7 @@
                                         </script>
                                     </div>
 
-                                    <button type="submit"
+                                    <button id="cadastrarButton" type="submit"
                                         class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Cadastrar
                                     </button>
 
@@ -132,7 +129,6 @@
     </div>
 
     <?php
-    // Verificar se o formulário foi enviado
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $usuario = new Usuario();
         $usuario->cadastrar($_POST['nome'], $_POST['whatsapp'], $_POST['email'], $_POST['estado'], $_POST['profissao']);
@@ -151,23 +147,8 @@
                 <div class="modal-body">
 
                     <div class="mb-3">
-                        <!-- <div class="mb-3">
-                            <p class="">Informamos que,
-                                de acordo com
-                                as regras
-                                do jogo, cada participante tem a <mark>oportunidade de vencer o QUIZ uma única
-                                    vez</mark>
-                            </p>
-                        </div> -->
-                        <!-- <div class="alert alert-warning" role="alert">
-                            Caro participante, informamos que, de acordo com as regras
-                            do jogo, <strong>cada participante tem a oportunidade de vencer o QUIZ uma única
-                                vez</strong> ⤵️
-                        </div> -->
                         <input type="tel" class="form-control" id="whatsappmodal" name="whatsappmodal"
                             aria-describedby="whatsappHelp" placeholder="Exemplo: (47) 98273-4573" required>
-                        <!-- <small id="whatsappHelp" class="form-text text-muted">Formato esperado: (XX)
-                            XXXXX-XXXX</small> -->
                     </div>
 
                     <script src="js/mascarawhatsappmodal.js"></script>
@@ -182,68 +163,10 @@
 
     <?php include "include/footer.php"; ?>
 
-    <script>
-        // Função para mostrar alerta SweetAlert
-        function mostrarErroConexao(erro) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Erro na Conexão',
-                text: erro,
-            });
-        }
-
-        // Função para verificar o acesso
-        function verificarAcesso() {
-            var whatsapp = document.getElementById('whatsappmodal').value;
-
-            $.ajax({
-                type: 'POST',
-                url: 'class/verificarusuario.php',
-                data: {
-                    whatsappmodal: whatsapp
-                },
-                success: function (response) {
-                    // Remove alertas existentes
-                    $(".alert").remove();
-
-                    // Adiciona o alerta Bootstrap com base na resposta do servidor
-                    if (response === 'nao_cadastrado') {
-                        mostrarAlerta('warning',
-                            'Ainda não há cadastro, por favor preencha o formulário!');
-                    } else if (response === 'venceu_quiz') {
-                        mostrarAlerta('danger', 'Só é permitido vencer o QUIZ uma vez!');
-                    } else {
-                        // Se existir e não venceu o quiz, redirecionar para "quiz.php"
-                        window.location.href = 'quiz.php';
-                    }
-                },
-                error: function (error) {
-                    // Lidar com erros de requisição Ajax
-                    console.error('Erro na requisição Ajax:', error);
-                }
-            });
-        }
-
-        function mostrarAlerta(type, message) {
-            // Cria o elemento de alerta Bootstrap
-            var alert = $('<div class="mb-3"><br/><div class="alert alert-' + type +
-                ' alert-dismissible fade show" role="alert">' +
-                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
-                message +
-                '</div></div>');
-
-            // Adiciona o alerta após o input
-            $('#whatsappmodal').after(alert);
-
-            // Fecha automaticamente após 5 segundos
-            setTimeout(function () {
-                alert.alert('close');
-            }, 5000);
-        }
-    </script>
+    <script src="js/verificarwhatsapp.js"></script>
+    <script src="js/cadastro.js"></script>
 
     <?php
-    // Verificar se houve erro de conexão e exibir o alerta
     if (isset($login) && $login instanceof Login && $login->conn->connect_error) {
         $login->mostrarErroConexao($login->conn->connect_error);
     }

@@ -28,10 +28,10 @@
                                 <i class="ti ti-checklist fs-6"></i>
                                 <p class="mb-0 fs-3">Perguntas</p>
                             </a>
-                            <!-- <a href="xdebug.php" class="d-flex align-items-center gap-2 dropdown-item">
-                                <i class="ti ti-checklist fs-6"></i>
-                                <p class="mb-0 fs-3">xDEBUG</p>
-                            </a> -->
+                            <a href="index.php" class="d-flex align-items-center gap-2 dropdown-item">
+                                <i class="ti ti-list-details fs-6"></i>
+                                <p class="mb-0 fs-3">Cadastro</p>
+                            </a>
                             <a href="include/logout.php" class="btn btn-outline-primary mx-3 mt-2 d-block">Sair</a>
                         </div>
                     </div>

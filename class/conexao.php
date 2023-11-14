@@ -1,7 +1,7 @@
 <?php
 
 // Inicie ou retome a sessão
-session_start();
+//session_start();
 
 class Conexao
 {
