@@ -4,10 +4,15 @@
 
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
+
         <div
             class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
             <div class="d-flex align-items-center justify-content-center w-100">
                 <div class="row justify-content-center w-100">
+
+                    <!-- <button type="button" class="btn btn-primary btn-circle btn-xl"><i class="fa fa-list"></i>
+                    </button> -->
+
                     <div class="col-md-8 col-lg-6 col-xxl-3">
                         <div class="card mb-0">
                             <div class="card-body">
@@ -97,14 +102,14 @@
                                         </div>
 
                                         <script>
-                                            document.getElementById('profissao').addEventListener('change', function () {
-                                                var outroProfissao = document.getElementById('outroProfissao');
-                                                if (this.value === 'Outro') {
-                                                    outroProfissao.style.display = 'block';
-                                                } else {
-                                                    outroProfissao.style.display = 'none';
-                                                }
-                                            });
+                                        document.getElementById('profissao').addEventListener('change', function() {
+                                            var outroProfissao = document.getElementById('outroProfissao');
+                                            if (this.value === 'Outro') {
+                                                outroProfissao.style.display = 'block';
+                                            } else {
+                                                outroProfissao.style.display = 'none';
+                                            }
+                                        });
                                         </script>
                                     </div>
 
@@ -114,9 +119,15 @@
 
                                     <div class="d-flex align-items-center justify-content-center">
                                         <p class="fs-4 mb-0 fw-bold">Já tem cadastro?</p>
-                                        <a class="text-primary fw-bold ms-2" href="#verificationModal"
+                                        <a class="fw-bold fs-4 ms-2 text-primary" href="#verificationModal"
                                             data-bs-toggle="modal" data-bs-target="#verificationModal">Clique e acesse
                                         </a>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <small>
+                                            <br /><a href="acessar.php" class="text-info fw-bold">Painel
+                                                Administrativo</a>
+                                        </small>
                                     </div>
 
                                 </form>

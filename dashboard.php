@@ -8,24 +8,24 @@ include "class/conexao.php";
 
 <body>
 
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-    data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
 
-    <div class="body-wrapper">
+        <div class="body-wrapper">
 
-      <?php include "include/navbar.php"; ?>
+            <?php include "include/navbar.php"; ?>
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="card w-100">
-              <div class="card-body p-4">
-                <div class="mb-4">
-                  <h5 class="card-title fw-semibold">Atividade recente</h5>
-                </div>
-                <ul class="timeline-widget mb-0 position-relative">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            <div class="card-body p-4">
+                                <div class="mb-4">
+                                    <h5 class="card-title fw-semibold">Atividade recente</h5>
+                                </div>
+                                <ul class="timeline-widget mb-0 position-relative">
 
-                  <?php
+                                    <?php
 
                   $conexao = new Conexao();
                   $conn = $conexao->getConnection();
@@ -59,17 +59,17 @@ include "class/conexao.php";
 
                   ?>
 
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-7 d-flex align-items-stretch">
-            <div class="card w-100">
-              <div class="card-body p-4">
-                <h5 class="card-title fw-semibold mb-4">Liberações</h5>
-                <div class="table-responsive">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            <div class="card-body p-4">
+                                <h5 class="card-title fw-semibold mb-4">Liberações</h5>
+                                <div class="table-responsive">
 
-                  <?php
+                                    <?php
 
                   $conexao = new Conexao();
                   $conn = $conexao->getConnection();
@@ -112,7 +112,7 @@ include "class/conexao.php";
                 <td><p class="mb-0 fw-normal">' . $nome . '</p></td>
                 <td>
                     <div class="d-flex align-items-center gap-2">
-                        <a href="#" class="' . $btnClass . '" data-id="' . $row['id'] . '" onclick="liberarRegistro(' . $row['id'] . ')">Liberar</a>
+                        <a href="" class="' . $btnClass . '" data-id="' . $row['id'] . '" onclick="liberarRegistro(' . $row['id'] . ')">Liberar</a>
                     </div>
                 </td>
             </tr>';
@@ -129,35 +129,38 @@ include "class/conexao.php";
 
                   ?>
 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
+                <?php include "include/devby.php"; ?>
+
             </div>
-          </div>
+
         </div>
-
-        <?php include "include/devby.php"; ?>
-
-      </div>
-
     </div>
-  </div>
 
-  <script>
+    <script>
     function liberarRegistro(id) {
+        console.log('Antes da solicitação AJAX');
 
-      let xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            console.log('Estado: ' + xhr.readyState + ', Status: ' + xhr.status);
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log('Após a solicitação AJAX');
 
-          let btnElement = document.querySelector('.btn[data-id="' + id + '"]');
-          btnElement.classList.remove('btn-outline-primary');
-          btnElement.classList.add('btn-primary');
-        }
-      };
+                let btnElement = document.querySelector('.btn[data-id="' + id + '"]');
+                btnElement.classList.remove('btn-outline-primary');
+                btnElement.classList.add('btn-primary');
+            }
+        };
 
-      xhr.open('GET', 'class/liberar_registro.php?id='.id, true);
-      xhr.send();
+        xhr.open('GET', 'class/liberar_registro.php?id=' + id, true);
+        xhr.send();
     }
-  </script>
+    </script>
 
-  <?php include "include/footer.php"; ?>
+    <?php include "include/footer.php"; ?>
