@@ -109,7 +109,7 @@ function endGame() {
     clearInterval(timer);
 
     Swal.fire({
-        title: correctAnswers >= 3 ? 'Parabéns, você venceu!' : 'Não foi dessa vez!',
+        title: correctAnswers >= 3 ? 'Parabéns, vá ao balcão para retirar o kit!' : 'Não foi dessa vez!',
         icon: correctAnswers >= 3 ? 'success' : 'error',
         timer: 10000,
         timerProgressBar: true,
@@ -121,7 +121,8 @@ function endGame() {
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         // Redirecione para "codigo.php" após a conclusão da requisição
-                        window.location.href = 'codigo.php';
+                        window.location.href = 'index.php';
+                        // window.location.href = 'codigo.php';
                     }
                 };
                 xhttp.open("GET", 'class/vencedor.php?whatsapp=' + encodeURIComponent(
