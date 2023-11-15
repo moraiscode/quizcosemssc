@@ -6,6 +6,10 @@ document.getElementById('whatsapp').addEventListener('input', function () {
 
     // Realize a verificação apenas se o número de WhatsApp atender aos requisitos mínimos
     if (inputWhatsApp.length >= 10) {
+        // Crie um objeto FormData para enviar os parâmetros
+        let formData = new FormData();
+        formData.append('whatsapp', inputWhatsApp);
+
         // Faça uma requisição AJAX para verificar se o número já está cadastrado
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
@@ -29,8 +33,8 @@ document.getElementById('whatsapp').addEventListener('input', function () {
         };
 
         // Substitua "verificar_whatsapp.php" pelo nome do arquivo que você usará para verificar o WhatsApp
-        xhr.open('GET', 'class/verificar_whatsapp.php?whatsapp=' + inputWhatsApp, true);
-        xhr.send();
+        xhr.open('POST', 'class/verificar_whatsapp.php', true);
+        xhr.send(formData);
     } else {
         // Limpe a mensagem de alerta se o número for muito curto
         document.getElementById('whatsappAlert').innerText = '';
