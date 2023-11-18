@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 include("conexao.php");
 
 // Verifique se o número de WhatsApp foi enviado via POST

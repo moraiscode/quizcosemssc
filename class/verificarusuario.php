@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 include_once "jogador.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

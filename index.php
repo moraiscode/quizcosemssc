@@ -1,4 +1,9 @@
-<?php include "include/header.php"; ?>
+<?php 
+
+session_start();
+include "include/header.php"; 
+
+?>
 
 <body>
 
@@ -16,6 +21,27 @@
                     <div class="col-md-8 col-lg-6 col-xxl-3">
                         <div class="card mb-0">
                             <div class="card-body">
+
+<?php
+include "class/conexao.php";
+
+$conexao = new Conexao();
+$conn = $conexao->getConnection();
+
+$query = "SELECT COUNT(*) as total_registros FROM jogador";
+$resultado = $conn->query($query);
+
+if ($resultado) {
+    $totalRegistros = $resultado->fetch_assoc()['total_registros'];
+    echo "<span class=\"timeline-badge border-2 border border-success flex-shrink-0 my-8\"></span>";
+    $resultado->free();
+} else {
+    echo "Erro na consulta: " . $conn->error;
+}
+$conexao->fecharConexao();
+?>
+
+
                                 <a href="" class="text-nowrap logo-img text-center d-block py-3 w-100">
                                     <img src="img/logocongresso200px.png" width="200" alt="">
                                 </a>
@@ -25,7 +51,7 @@
 
                                     <div class="mb-3">
                                         <label for="nome" class="form-label">Nome</label>
-                                        <input type="text" class="form-control" id="nome" name="nome"
+                                        <input style="text-transform: capitalize;" type="text" class="form-control" id="nome" name="nome"
                                             aria-describedby="nomeHelp" required>
                                     </div>
 

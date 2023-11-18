@@ -23,6 +23,14 @@ include "include/header.php";
                         <div class="card mb-0">
                             <div class="">
 
+<?php
+if($whatsappDoJogador){
+    echo "<span class=\"timeline-badge border-2 border border-success flex-shrink-0 my-8\"></span>";
+} else {
+echo "<span class=\"timeline-badge border-2 border border-danger flex-shrink-0 my-8\"></span>";    
+}
+?>
+
                                 <div class="w-100 p-3">
                                     <div class="row text-center">
 

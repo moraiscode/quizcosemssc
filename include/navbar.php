@@ -1,3 +1,5 @@
+
+
 <!--  Header Start -->
 <header class="app-header card">
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -5,9 +7,11 @@
             <li class="nav-link">
                 <!-- <p style="margin: unset;"><img src="img/logo50px.png"></p> -->
                 <!-- <p style="margin: unset;"><strong>🗓️ COSEMS/SC</strong></p> -->
-                <a href="perguntas.php" class="btn btn-primary">
-                    <!--<i class="ti ti-server"></i>--> Perguntas
+        
+                <a href="perguntas.php" class="btn btn-dark btn-block" onclick="exportarParaExcel()">
+                    <i class="ti ti-download"></i>
                 </a>
+                
             </li>
         </ul>
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">

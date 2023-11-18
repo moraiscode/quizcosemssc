@@ -121,11 +121,11 @@ function endGame() {
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         // Redirecione para "codigo.php" após a conclusão da requisição
-                        window.location.href = 'index.php';
-                        // window.location.href = 'codigo.php';
+                        //window.location.href = 'index.php';
+                        window.location.href = 'codigo.php';
                     }
                 };
-                xhttp.open("GET", 'class/vencedor.php?whatsapp=' + encodeURIComponent(
+                xhttp.open("POST", 'class/vencedor.php?whatsapp=' + encodeURIComponent(
                     '<?php echo $whatsappDoJogador; ?>'), true);
                 xhttp.send();
             } else {

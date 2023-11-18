@@ -6,9 +6,9 @@
 class Conexao
 {
     private $servername = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $dbname = "cosemssc2023";
+    private $username = "u407903065_cfncosemssc";
+    private $password = "ruqraQ-necxub-zifny5";
+    private $dbname = "u407903065_cfncosemssc";
     protected $conn;
 
     public function __construct()

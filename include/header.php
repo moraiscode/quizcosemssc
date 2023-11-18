@@ -16,7 +16,8 @@
     <meta property="og:title" content="Congresso COSEMS/SC - Florianópolis 2023">
     <meta property="og:description"
         content="Participe do Congresso Sul, Sudeste e Centro-Oeste de Secretarias Municipais de Saúde em Florianópolis. De 16 a 18 de novembro.">
-    <meta property="og:image" content="img/og image.png">
+    <meta property="og:image" content="img/og_image.png">
+    <meta property="og:image" content="../img/og_image.png">
     <meta property="og:url" content="https://www.cfn.org.br/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@cfn_nutricao">
@@ -36,7 +37,6 @@
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
-
     <!-- Sweet Alert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -46,6 +46,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
     <script src="data.js"></script> <!-- Include the data.js file -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Retorno Sonoro -->
     <audio id="audio-success">

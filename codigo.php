@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include "class/resgatarcodigo.php";
 include "include/header.php";
 
@@ -31,6 +32,11 @@ include "include/header.php";
                                             echo "<h1 style=\"text-align: center; font-size: 4em;\"><strong>" . $codigo . "</strong></h1>";
                                             ?>
                                         </div>
+                                    </div>
+                                    <div class="mb-3 d-flex align-items-center justify-content-center">
+                                        <small>
+                                            <br /><a href="index.php" class="text-info fw-bold">Voltar para o início ⤵️</a>
+                                        </small>
                                     </div>
                                 </div>
                             </div>
