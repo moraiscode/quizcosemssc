@@ -1,3 +1,5 @@
+![alt text](https://github.com/moraiscode/quizcosemssc/blob/main/Print%201.png)
+
 # quizcosemssc
 QUIZ para uso no totem do COSEMS/SC 2023
 
